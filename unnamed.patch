@@ -1,0 +1,93 @@
+Index: app/src/main/java/com/example/practica/examen_practico_ordinario_1_2/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/practica/examen_practico_ordinario_1_2/Main.java	(revision c6c55a9e516a0a775bf1228f3486494fa759c138)
++++ app/src/main/java/com/example/practica/examen_practico_ordinario_1_2/Main.java	(date 1538356857832)
+@@ -20,7 +20,7 @@
+     RadioButton rdBtnAlgebraica,rdBtnAritmetica;
+     EditText edtTxtRes, edtTxtNum1,edtTxtNum2,edtTxtNum3,edtTxtNum4,edtTxtNum5;
+     Button btnVerificar, btnVerificar2;
+-    int vida;
++    int vida=1;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -73,7 +73,7 @@
+     }
+ }); //CIERRE LISTENER
+ */
+-
++prueba();
+ 
+ 
+     } //CIERRE DE ONCREATE
+@@ -291,7 +291,34 @@
+ 
+ 
+ 
++    public void prueba(){
++
++        rdGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
++            @Override
++            public void onCheckedChanged(RadioGroup radioGroup, int i) {
++                if (rdBtnAlgebraica.isChecked()){
++                    Toast.makeText(Main.this, "Algebraico", Toast.LENGTH_SHORT).show();
++                }else {
++                    Aritmetica();
++                    Toast.makeText(Main.this, "Aritmetico", Toast.LENGTH_SHORT).show();
++                }
+ 
++            }
++        });
++
++    }
++
++
++    public void prueba2(){
++
++        if (rdBtnAlgebraica.isChecked()){
++            Toast.makeText(Main.this, "Algebraico", Toast.LENGTH_SHORT).show();
++            Algebraica();
++        }else {
++            Aritmetica();
++            Toast.makeText(Main.this, "Aritmetico", Toast.LENGTH_SHORT).show();
++        }
++    }
+ 
+ 
+ 
+@@ -303,7 +330,7 @@
+         if (ver1==ver2){
+             Toast.makeText(Main.this, "GANASTE", Toast.LENGTH_SHORT).show();
+             Toast.makeText(Main.this, "REINICIANDO", Toast.LENGTH_SHORT).show();
+-            Aritmetica();
++            prueba2();
+             vida = 1;
+         }else {
+ 
+@@ -319,7 +346,7 @@
+                 case 3:
+                     Toast.makeText(Main.this, "PERDISTE: REINICIANDO", Toast.LENGTH_SHORT).show();
+                     vida = 1;
+-                    Aritmetica();
++                    prueba2();
+ 
+                     break;
+                 default:
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1538354314859)
++++ .idea/vcs.xml	(date 1538354314859)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
